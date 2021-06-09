@@ -7395,6 +7395,7 @@ class nusoap_client extends nusoap_base
     var $persistentConnection = false;
     var $defaultRpcParams = false;    // This is no longer used
     var $request = '';                // HTTP request
+    var $requestData = '';            // SOAP payload of request
     var $response = '';                // HTTP response
     var $responseData = '';            // SOAP payload of response
     var $cookies = array();            // Cookies from response or for request
@@ -7509,6 +7510,7 @@ class nusoap_client extends nusoap_base
         $this->setError('');
         $this->request = '';
         $this->response = '';
+	$this->requestData = '';
         $this->responseData = '';
         $this->faultstring = '';
         $this->faultcode = '';
@@ -7797,6 +7799,7 @@ class nusoap_client extends nusoap_base
                     $http->setEncoding($this->http_encoding);
                 }
                 $this->debug('sending message, length=' . strlen($msg));
+		$this->requestData = $msg;
                 if (preg_match('/^http:/', $this->endpoint)) {
                     //if(strpos($this->endpoint,'http:')){
                     $this->responseData = $http->send($msg, $timeout, $response_timeout, $this->cookies);
