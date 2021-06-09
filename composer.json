@@ -1,5 +1,5 @@
 {
-  "name": "econea/nusoap",
+  "name": "dbaeka/nusoap",
   "type": "library",
   "description": "Fixed NuSOAP for PHP 5.4 - 8.0",
   "keywords": ["soap","nusoap","php","http","xml","transport","client"],
